@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="596170ff2ae142e5b34a992bd5db49ef" Name="Diagram1">
+        <EntityTypeShape EntityType="PetShopDatabaseModel.Animal" Width="1.5" PointX="5.25" PointY="4.25" />
+        <EntityTypeShape EntityType="PetShopDatabaseModel.Classis" Width="1.5" PointX="0.75" PointY="3" />
+        <EntityTypeShape EntityType="PetShopDatabaseModel.Sex" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="PetShopDatabaseModel.Species" Width="1.5" PointX="3" PointY="6.375" />
+        <EntityTypeShape EntityType="PetShopDatabaseModel.AnimalView" Width="1.5" PointX="2.75" PointY="0.75" />
+        <AssociationConnector Association="PetShopDatabaseModel.FK__Animal__Classis__4316F928" />
+        <AssociationConnector Association="PetShopDatabaseModel.FK__Animal__Sex__44FF419A" />
+        <AssociationConnector Association="PetShopDatabaseModel.FK__Animal__Species__440B1D61" />
+        <AssociationConnector Association="PetShopDatabaseModel.FK__Species__Classis__48CFD27E" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

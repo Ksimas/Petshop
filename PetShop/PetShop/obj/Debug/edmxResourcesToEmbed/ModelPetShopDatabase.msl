@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PetShopDatabaseModelStoreContainer" CdmEntityContainer="PetShopDatabaseEntities">
+    <EntitySetMapping Name="Animal">
+      <EntityTypeMapping TypeName="PetShopDatabaseModel.Animal">
+        <MappingFragment StoreEntitySet="Animal">
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Species" ColumnName="Species" />
+          <ScalarProperty Name="Classis" ColumnName="Classis" />
+          <ScalarProperty Name="AnimalID" ColumnName="AnimalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classis">
+      <EntityTypeMapping TypeName="PetShopDatabaseModel.Classis">
+        <MappingFragment StoreEntitySet="Classis">
+          <ScalarProperty Name="Classis1" ColumnName="Classis" />
+          <ScalarProperty Name="ClassisID" ColumnName="ClassisID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sex">
+      <EntityTypeMapping TypeName="PetShopDatabaseModel.Sex">
+        <MappingFragment StoreEntitySet="Sex">
+          <ScalarProperty Name="Sex1" ColumnName="Sex" />
+          <ScalarProperty Name="SexID" ColumnName="SexID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Species">
+      <EntityTypeMapping TypeName="PetShopDatabaseModel.Species">
+        <MappingFragment StoreEntitySet="Species">
+          <ScalarProperty Name="Classis" ColumnName="Classis" />
+          <ScalarProperty Name="Species1" ColumnName="Species" />
+          <ScalarProperty Name="SpeciesID" ColumnName="SpeciesID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnimalView">
+      <EntityTypeMapping TypeName="PetShopDatabaseModel.AnimalView">
+        <MappingFragment StoreEntitySet="AnimalView">
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Species" ColumnName="Species" />
+          <ScalarProperty Name="Classis" ColumnName="Classis" />
+          <ScalarProperty Name="AnimalID" ColumnName="AnimalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

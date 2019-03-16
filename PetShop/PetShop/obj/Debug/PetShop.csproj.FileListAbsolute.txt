@@ -1,0 +1,16 @@
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\bin\Debug\PetShop.exe.config
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\bin\Debug\PetShop.exe
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\bin\Debug\PetShop.pdb
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\bin\Debug\EntityFramework.dll
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\bin\Debug\EntityFramework.SqlServer.dll
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\bin\Debug\EntityFramework.xml
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\bin\Debug\EntityFramework.SqlServer.xml
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\obj\Debug\PetShop.csprojResolveAssemblyReference.cache
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\obj\Debug\PetShop.Properties.Resources.resources
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\obj\Debug\PetShop.csproj.GenerateResource.Cache
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\obj\Debug\PetShop.csproj.CoreCompileInputs.cache
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\obj\Debug\PetShop.exe
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\obj\Debug\PetShop.pdb
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\obj\Debug\PetShop.FormAddAnimal.resources
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\obj\Debug\PetShop.FormMain.resources
+c:\Kredek\krystian_wolszczak\lab4\PetShop\PetShop\obj\Debug\PetShop.FormEdit.resources

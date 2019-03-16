@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PetShopDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PetShopDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Animal" EntityType="PetShopDatabaseModel.Animal" />
+    <EntitySet Name="Classis" EntityType="PetShopDatabaseModel.Classis" />
+    <EntitySet Name="Sex" EntityType="PetShopDatabaseModel.Sex" />
+    <EntitySet Name="Species" EntityType="PetShopDatabaseModel.Species" />
+    <EntitySet Name="AnimalView" EntityType="PetShopDatabaseModel.AnimalView" />
+    <AssociationSet Name="FK__Animal__Classis__4316F928" Association="PetShopDatabaseModel.FK__Animal__Classis__4316F928">
+      <End Role="Classis" EntitySet="Classis" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Animal__Sex__44FF419A" Association="PetShopDatabaseModel.FK__Animal__Sex__44FF419A">
+      <End Role="Sex" EntitySet="Sex" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Animal__Species__440B1D61" Association="PetShopDatabaseModel.FK__Animal__Species__440B1D61">
+      <End Role="Species" EntitySet="Species" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Species__Classis__48CFD27E" Association="PetShopDatabaseModel.FK__Species__Classis__48CFD27E">
+      <End Role="Classis" EntitySet="Classis" />
+      <End Role="Species" EntitySet="Species" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="AnimalID" />
+    </Key>
+    <Property Name="AnimalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Classis" Type="Int32" Nullable="false" />
+    <Property Name="Species" Type="Int32" Nullable="false" />
+    <Property Name="Sex" Type="Byte" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" />
+    <Property Name="Weight" Type="Double" />
+    <NavigationProperty Name="Classis1" Relationship="PetShopDatabaseModel.FK__Animal__Classis__4316F928" FromRole="Animal" ToRole="Classis" />
+    <NavigationProperty Name="Sex1" Relationship="PetShopDatabaseModel.FK__Animal__Sex__44FF419A" FromRole="Animal" ToRole="Sex" />
+    <NavigationProperty Name="Species1" Relationship="PetShopDatabaseModel.FK__Animal__Species__440B1D61" FromRole="Animal" ToRole="Species" />
+  </EntityType>
+  <EntityType Name="Classis">
+    <Key>
+      <PropertyRef Name="ClassisID" />
+    </Key>
+    <Property Name="ClassisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Classis1" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Animal" Relationship="PetShopDatabaseModel.FK__Animal__Classis__4316F928" FromRole="Classis" ToRole="Animal" />
+    <NavigationProperty Name="Species" Relationship="PetShopDatabaseModel.FK__Species__Classis__48CFD27E" FromRole="Classis" ToRole="Species" />
+  </EntityType>
+  <EntityType Name="Sex">
+    <Key>
+      <PropertyRef Name="SexID" />
+    </Key>
+    <Property Name="SexID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sex1" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Animal" Relationship="PetShopDatabaseModel.FK__Animal__Sex__44FF419A" FromRole="Sex" ToRole="Animal" />
+  </EntityType>
+  <EntityType Name="Species">
+    <Key>
+      <PropertyRef Name="SpeciesID" />
+    </Key>
+    <Property Name="SpeciesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Species1" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Classis" Type="Int32" />
+    <NavigationProperty Name="Animal" Relationship="PetShopDatabaseModel.FK__Animal__Species__440B1D61" FromRole="Species" ToRole="Animal" />
+    <NavigationProperty Name="Classis1" Relationship="PetShopDatabaseModel.FK__Species__Classis__48CFD27E" FromRole="Species" ToRole="Classis" />
+  </EntityType>
+  <EntityType Name="AnimalView">
+    <Key>
+      <PropertyRef Name="AnimalID" />
+      <PropertyRef Name="Classis" />
+      <PropertyRef Name="Species" />
+      <PropertyRef Name="Sex" />
+      <PropertyRef Name="DateOfBirth" />
+    </Key>
+    <Property Name="AnimalID" Type="Int32" Nullable="false" />
+    <Property Name="Classis" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="Species" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Weight" Type="Double" />
+  </EntityType>
+  <Association Name="FK__Animal__Classis__4316F928">
+    <End Type="PetShopDatabaseModel.Classis" Role="Classis" Multiplicity="1" />
+    <End Type="PetShopDatabaseModel.Animal" Role="Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classis">
+        <PropertyRef Name="ClassisID" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Classis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Animal__Sex__44FF419A">
+    <End Type="PetShopDatabaseModel.Sex" Role="Sex" Multiplicity="1" />
+    <End Type="PetShopDatabaseModel.Animal" Role="Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sex">
+        <PropertyRef Name="SexID" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Sex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Animal__Species__440B1D61">
+    <End Type="PetShopDatabaseModel.Species" Role="Species" Multiplicity="1" />
+    <End Type="PetShopDatabaseModel.Animal" Role="Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Species">
+        <PropertyRef Name="SpeciesID" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Species" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Species__Classis__48CFD27E">
+    <End Type="PetShopDatabaseModel.Classis" Role="Classis" Multiplicity="0..1" />
+    <End Type="PetShopDatabaseModel.Species" Role="Species" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classis">
+        <PropertyRef Name="ClassisID" />
+      </Principal>
+      <Dependent Role="Species">
+        <PropertyRef Name="Classis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

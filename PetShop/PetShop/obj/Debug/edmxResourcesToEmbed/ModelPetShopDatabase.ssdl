@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PetShopDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="AnimalID" />
+    </Key>
+    <Property Name="AnimalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Classis" Type="int" Nullable="false" />
+    <Property Name="Species" Type="int" Nullable="false" />
+    <Property Name="Sex" Type="tinyint" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Weight" Type="float" />
+  </EntityType>
+  <EntityType Name="Classis">
+    <Key>
+      <PropertyRef Name="ClassisID" />
+    </Key>
+    <Property Name="ClassisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Classis" Type="nvarchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sex">
+    <Key>
+      <PropertyRef Name="SexID" />
+    </Key>
+    <Property Name="SexID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Species">
+    <Key>
+      <PropertyRef Name="SpeciesID" />
+    </Key>
+    <Property Name="SpeciesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Species" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Classis" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PetShopDatabase.dbo.AnimalView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AnimalView">
+    <Key>
+      <PropertyRef Name="AnimalID" />
+      <PropertyRef Name="Classis" />
+      <PropertyRef Name="Species" />
+      <PropertyRef Name="Sex" />
+      <PropertyRef Name="DateOfBirth" />
+    </Key>
+    <Property Name="AnimalID" Type="int" Nullable="false" />
+    <Property Name="Classis" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Species" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Weight" Type="float" />
+  </EntityType>
+  <Association Name="FK__Animal__Classis__4316F928">
+    <End Role="Classis" Type="Self.Classis" Multiplicity="1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classis">
+        <PropertyRef Name="ClassisID" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Classis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Animal__Sex__44FF419A">
+    <End Role="Sex" Type="Self.Sex" Multiplicity="1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sex">
+        <PropertyRef Name="SexID" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Sex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Animal__Species__440B1D61">
+    <End Role="Species" Type="Self.Species" Multiplicity="1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Species">
+        <PropertyRef Name="SpeciesID" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Species" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Species__Classis__48CFD27E">
+    <End Role="Classis" Type="Self.Classis" Multiplicity="0..1" />
+    <End Role="Species" Type="Self.Species" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classis">
+        <PropertyRef Name="ClassisID" />
+      </Principal>
+      <Dependent Role="Species">
+        <PropertyRef Name="Classis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PetShopDatabaseModelStoreContainer">
+    <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Classis" EntityType="Self.Classis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sex" EntityType="Self.Sex" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnimalView" EntityType="Self.AnimalView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AnimalView].[AnimalID] AS [AnimalID], 
+    [AnimalView].[Classis] AS [Classis], 
+    [AnimalView].[Species] AS [Species], 
+    [AnimalView].[Sex] AS [Sex], 
+    [AnimalView].[DateOfBirth] AS [DateOfBirth], 
+    [AnimalView].[Weight] AS [Weight]
+    FROM [dbo].[AnimalView] AS [AnimalView]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Animal__Classis__4316F928" Association="Self.FK__Animal__Classis__4316F928">
+      <End Role="Classis" EntitySet="Classis" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Animal__Sex__44FF419A" Association="Self.FK__Animal__Sex__44FF419A">
+      <End Role="Sex" EntitySet="Sex" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Animal__Species__440B1D61" Association="Self.FK__Animal__Species__440B1D61">
+      <End Role="Species" EntitySet="Species" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Species__Classis__48CFD27E" Association="Self.FK__Species__Classis__48CFD27E">
+      <End Role="Classis" EntitySet="Classis" />
+      <End Role="Species" EntitySet="Species" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
